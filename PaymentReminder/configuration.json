@@ -1,0 +1,35 @@
+{
+    "version": "0.0.0",
+    "Talents": {
+        "Santi": {
+            "name": "Santiago Conde Mendoza",
+            "email": "lacocinadesantiaguini@gmail.com",
+            "alias": "LaCocinaDeSantiaguini"
+        },
+        "Pilu": {
+            "name": "Pilar Cuenca González",
+            "email": "pilu.cuenca.gonzalez@gmail.com",
+            "alias": "pilumchef11"
+        }
+    },
+    "Managers":
+    {
+        "MariaP": {
+            "name": "Maria Perez Ribes",
+            "email": "perezribesmaria@gmail.com",
+            "alias": "raton"
+        }
+
+    },
+    "Excelator":
+    [
+        "Identificador",
+        "Talento",
+        "Marca",
+        "Manager",
+        "Cantidad Total",
+        "Fecha de Facturación",
+        "Dias Restantes",
+        "Cobrado"
+    ]
+}
