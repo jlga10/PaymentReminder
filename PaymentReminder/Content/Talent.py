@@ -1,7 +1,7 @@
 class Talent:
     @staticmethod
     def getName():
-            return __name__
+        return __name__
 
     def __init__(self, name, email, alias):
         self.name = name

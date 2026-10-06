@@ -3,10 +3,10 @@ class Collaboration:
     def getName():
             return __name__
     
-    def __init__(self, id, talent, marca, manager, total_amount, billing_date, remaining_days, charged):
+    def __init__(self, id, talent, brand, manager, total_amount, billing_date, remaining_days, charged):
         self.id = id
         self.talent = talent
-        self.marca = marca
+        self.brand = brand
         self.manager = manager
         self.total_amount = total_amount
         self.billing_date = billing_date
