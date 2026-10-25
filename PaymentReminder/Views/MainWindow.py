@@ -46,10 +46,10 @@ class WindowGenericContent(QWidget):
         self.module_combobox.setInsertPolicy(QComboBox.NoInsert)
 
         self.name_label = QLabel("Name:")
-        self.name_label.setStyleSheet("font-weight: bold; font-size: 12px;")
+        #self.name_label.setStyleSheet("font-weight: bold; font-size: 12px;")
         self.name_line_edit = QLineEdit()
     
-        line_edit_layout = QHBoxLayout()
+        line_edit_layout = QVBoxLayout()
         line_edit_layout.addWidget(self.module_label)
         line_edit_layout.addWidget(self.module_combobox)
         line_edit_layout.addWidget(self.name_label)
