@@ -99,10 +99,13 @@ class MainController:
         collaboration_tab = self.view.module_tabs["Collaborations"]
         collaboration_tab.collaboration_talent_combobox.clear()
         collaboration_tab.collaboration_talent_combobox.addItems([name for name, talent in self.model.talents.items()])
+        collaboration_tab.collaboration_talent_string_list_model.setStringList(list(self.model.talents.keys()))
         collaboration_tab.collaboration_brand_combobox.clear()
         collaboration_tab.collaboration_brand_combobox.addItems([name for name, brand in self.model.brands.items()])
+        collaboration_tab.collaboration_brand_string_list_model.setStringList(list(self.model.brands.keys()))
         collaboration_tab.collaboration_manager_combobox.clear()
         collaboration_tab.collaboration_manager_combobox.addItems([name for name, manager in self.model.managers.items()])
+        collaboration_tab.collaboration_manager_string_list_model.setStringList(list(self.model.managers.keys()))
     def updateBrandWidgets(self):
         brand_tab = self.view.module_tabs["Brands"]
         brand_tab.module_combobox.clear()
