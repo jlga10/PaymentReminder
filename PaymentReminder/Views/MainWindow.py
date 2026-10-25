@@ -1,7 +1,7 @@
 import sys
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QStringListModel
 from PySide6.QtWidgets import (
-    QApplication, QCheckBox, QHBoxLayout, QLineEdit, QMainWindow, QPushButton, QSpinBox, QTabWidget, QWidget, 
+    QApplication, QCheckBox, QCompleter, QHBoxLayout, QLineEdit, QMainWindow, QPushButton, QSpinBox, QTabWidget, QWidget, 
     QVBoxLayout, QLabel, QComboBox
 )
 from PaymentReminder.Utils import CustomWidgets
@@ -32,11 +32,26 @@ class WindowGenericContent(QWidget):
         
 
         # 3. Crear los widgets genericos para el CRUD (Agregar, Editar, Eliminar)
+        self.module_label = QLabel(f"{module_name}:")
+        #Completer
+        self.module_string_list_model = QStringListModel(list(), self)
+        self.module_completer = QCompleter(self)
+        self.module_completer.setModel(self.module_string_list_model)
+        self.module_completer.setCaseSensitivity(Qt.CaseInsensitive)
+        self.module_completer.setFilterMode(Qt.MatchContains)
+        #ComboBox
+        self.module_combobox = QComboBox()
+        self.module_combobox.setCompleter(self.module_completer)
+        self.module_combobox.setEditable(True)
+        self.module_combobox.setInsertPolicy(QComboBox.NoInsert)
+
         self.name_label = QLabel("Name:")
         self.name_label.setStyleSheet("font-weight: bold; font-size: 12px;")
         self.name_line_edit = QLineEdit()
     
         line_edit_layout = QHBoxLayout()
+        line_edit_layout.addWidget(self.module_label)
+        line_edit_layout.addWidget(self.module_combobox)
         line_edit_layout.addWidget(self.name_label)
         line_edit_layout.addWidget(self.name_line_edit)
 
@@ -147,12 +162,40 @@ class MainWindow(QMainWindow):
     def createCollaborationWidgets(self, collaboration_tab):
         collaboration_tab.collaboration_id_label = QLabel("ID:")
         collaboration_tab.collaboration_id_spin_box = QSpinBox()
+
         collaboration_tab.collaboration_talent_label = QLabel("Talent:")
-        collaboration_tab.collaboration_talent_line_edit = QLineEdit()
+        collaboration_tab.collaboration_talent_string_list_model = QStringListModel(list(), self)
+        collaboration_tab.collaboration_talent_completer = QCompleter()
+        collaboration_tab.collaboration_talent_completer.setModel(collaboration_tab.collaboration_talent_string_list_model)
+        collaboration_tab.collaboration_talent_completer.setCaseSensitivity(Qt.CaseInsensitive)
+        collaboration_tab.collaboration_talent_completer.setFilterMode(Qt.MatchContains)
+        collaboration_tab.collaboration_talent_combobox = QComboBox()
+        collaboration_tab.collaboration_talent_combobox.setCompleter(collaboration_tab.collaboration_talent_completer)
+        collaboration_tab.collaboration_talent_combobox.setEditable(True)
+        collaboration_tab.collaboration_talent_combobox.setInsertPolicy(QComboBox.NoInsert)
+
         collaboration_tab.collaboration_brand_label = QLabel("Brand:")
-        collaboration_tab.collaboration_brand_line_edit = QLineEdit()
+        collaboration_tab.collaboration_brand_string_list_model = QStringListModel(list(), self)
+        collaboration_tab.collaboration_brand_completer = QCompleter()
+        collaboration_tab.collaboration_brand_completer.setModel(collaboration_tab.collaboration_talent_string_list_model)
+        collaboration_tab.collaboration_brand_completer.setCaseSensitivity(Qt.CaseInsensitive)
+        collaboration_tab.collaboration_brand_completer.setFilterMode(Qt.MatchContains)
+        collaboration_tab.collaboration_brand_combobox = QComboBox()
+        collaboration_tab.collaboration_brand_combobox.setCompleter(collaboration_tab.collaboration_brand_completer)
+        collaboration_tab.collaboration_brand_combobox.setEditable(True)
+        collaboration_tab.collaboration_brand_combobox.setInsertPolicy(QComboBox.NoInsert)
+        
         collaboration_tab.collaboration_manager_label = QLabel("Manager:")
-        collaboration_tab.collaboration_manager_line_edit = QLineEdit()
+        collaboration_tab.collaboration_manager_string_list_model = QStringListModel(list(), self)
+        collaboration_tab.collaboration_manager_completer = QCompleter()
+        collaboration_tab.collaboration_manager_completer.setModel(collaboration_tab.collaboration_talent_string_list_model)
+        collaboration_tab.collaboration_manager_completer.setCaseSensitivity(Qt.CaseInsensitive)
+        collaboration_tab.collaboration_manager_completer.setFilterMode(Qt.MatchContains)
+        collaboration_tab.collaboration_manager_combobox = QComboBox()
+        collaboration_tab.collaboration_manager_combobox.setCompleter(collaboration_tab.collaboration_manager_completer)
+        collaboration_tab.collaboration_manager_combobox.setEditable(True)
+        collaboration_tab.collaboration_manager_combobox.setInsertPolicy(QComboBox.NoInsert)
+
         collaboration_tab.collaboration_total_amount_label = QLabel("Total Amount:")
         collaboration_tab.collaboration_total_amount_spin_box = QSpinBox()
         collaboration_tab.collaboration_billing_date_label = QLabel("Billing Date:")
@@ -165,11 +208,11 @@ class MainWindow(QMainWindow):
         collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_id_label)
         collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_id_spin_box)
         collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_talent_label)
-        collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_talent_line_edit)
+        collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_talent_combobox)
         collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_brand_label)
-        collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_brand_line_edit)
+        collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_brand_combobox)
         collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_manager_label)
-        collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_manager_line_edit)
+        collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_manager_combobox)
         collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_total_amount_label)
         collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_total_amount_spin_box)
         collaboration_tab.especific_widgets_layout.addWidget(collaboration_tab.collaboration_billing_date_label)
