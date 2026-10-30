@@ -22,12 +22,12 @@ registros = [
 
 def create_sample_data(model):
     Talents = {
-        "Santi": talent.Talent("Santiago Conde Mendoza", "santiago.conde@ejemplo.com", "LaCocinaDeSantiaguini"),
-        "Pilu": talent.Talent("Pilar Cuenca González", "pilu@ejemplo.com", "pilumchef11")
+        "Santi": talent.Talent("Santiago Conde Mendoza", "santiago.conde@ejemplo.com", "telefono", "LaCocinaDeSantiaguini"),
+        "Pilu": talent.Talent("Pilar Cuenca González", "pilu@ejemplo.com", "telefono", "pilumchef11")
     }
 
     Managers = {
-        "Maria": manager.Manager("Maria Perez Ribes", "", "MP")
+        "Maria": manager.Manager("Maria Perez Ribes", "", "telefono", "MP")
     }
 
     Brands = {
@@ -71,3 +71,4 @@ if __name__ == "__main__":
     #sys.exit(app.exec())
     app.exec()
     #excelator.ExcelManager.generateExcel()
+    #print("hello")

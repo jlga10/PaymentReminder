@@ -45,10 +45,10 @@ class MainController:
 #endregion BRAND
 #region TALENT
     def createTalent(self, talent_tab):
-        self.model.createTalent(talent_tab.name_line_edit.text(), talent_tab.talent_email_line_edit.text(), talent_tab.talent_telephone_line_edit.text())
+        self.model.createTalent(talent_tab.name_line_edit.text(), talent_tab.talent_email_line_edit.text(), talent_tab.talent_telephone_line_edit.text(), talent_tab.talent_alias_line_edit.text())
         self.updateViews()
     def editTalent(self, talent_tab):
-        self.model.editTalent(talent_tab.name_line_edit.text(), talent_tab.talent_email_line_edit.text(), talent_tab.talent_telephone_line_edit.text())
+        self.model.editTalent(talent_tab.name_line_edit.text(), talent_tab.talent_email_line_edit.text(), talent_tab.talent_telephone_line_edit.text(), talent_tab.talent_alias_line_edit.text())
         self.updateViews()
     def deleteTalent(self, talent_tab):
         self.model.deleteTalent(talent_tab.name_line_edit.text())
@@ -56,10 +56,10 @@ class MainController:
 #endregion TALENT
 #region MANAGER
     def createManager(self, manager_tab):
-        self.model.createManager(manager_tab.name_line_edit.text(), manager_tab.manager_email_line_edit.text(), manager_tab.manager_alias_line_edit.text())
+        self.model.createManager(manager_tab.name_line_edit.text(), manager_tab.manager_email_line_edit.text(), manager_tab.manager_telephone_line_edit.text(), manager_tab.manager_alias_line_edit.text())
         self.updateViews()
     def editManager(self, manager_tab):
-        self.model.editManager(manager_tab.name_line_edit.text(), manager_tab.manager_email_line_edit.text(), manager_tab.manager_alias_line_edit.text())
+        self.model.editManager(manager_tab.name_line_edit.text(), manager_tab.manager_email_line_edit.text(), manager_tab.manager_telephone_line_edit.text(), manager_tab.manager_alias_line_edit.text())
         self.updateViews()  
     def deleteManager(self, manager_tab):
         self.model.deleteManager(manager_tab.name_line_edit.text())

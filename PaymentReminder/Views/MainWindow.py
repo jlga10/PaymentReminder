@@ -140,11 +140,15 @@ class MainWindow(QMainWindow):
     def createManagerWidgets(self, manager_tab):
         manager_tab.manager_email_label = QLabel("Email:")
         manager_tab.manager_email_line_edit = QLineEdit()
+        manager_tab.manager_telephone_label = QLabel("telephone:")
+        manager_tab.manager_telephone_line_edit = QLineEdit()
         manager_tab.manager_alias_label = QLabel("Alias:")
         manager_tab.manager_alias_line_edit = QLineEdit()
 
         manager_tab.especific_widgets_layout.addWidget(manager_tab.manager_email_label)
         manager_tab.especific_widgets_layout.addWidget(manager_tab.manager_email_line_edit)
+        manager_tab.especific_widgets_layout.addWidget(manager_tab.manager_telephone_label)
+        manager_tab.especific_widgets_layout.addWidget(manager_tab.manager_telephone_line_edit)
         manager_tab.especific_widgets_layout.addWidget(manager_tab.manager_alias_label)
         manager_tab.especific_widgets_layout.addWidget(manager_tab.manager_alias_line_edit)
 
@@ -153,12 +157,16 @@ class MainWindow(QMainWindow):
         talent_tab.talent_email_line_edit = QLineEdit()
         talent_tab.talent_telephone_label = QLabel("Telephone:")
         talent_tab.talent_telephone_line_edit = QLineEdit()
+        talent_tab.talent_alias_label = QLabel("Alias:")
+        talent_tab.talent_alias_line_edit = QLineEdit()
 
         talent_tab.especific_widgets_layout.addWidget(talent_tab.talent_email_label)
         talent_tab.especific_widgets_layout.addWidget(talent_tab.talent_email_line_edit)
         talent_tab.especific_widgets_layout.addWidget(talent_tab.talent_telephone_label)
         talent_tab.especific_widgets_layout.addWidget(talent_tab.talent_telephone_line_edit)
-
+        talent_tab.especific_widgets_layout.addWidget(talent_tab.talent_alias_label)
+        talent_tab.especific_widgets_layout.addWidget(talent_tab.talent_alias_line_edit)
+        
     def createCollaborationWidgets(self, collaboration_tab):
         collaboration_tab.collaboration_id_label = QLabel("ID:")
         collaboration_tab.collaboration_id_spin_box = QSpinBox()

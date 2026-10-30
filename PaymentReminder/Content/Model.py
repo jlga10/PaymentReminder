@@ -49,17 +49,17 @@ class Model(object):
         return self.brands.get(brand_name, None)
 #endregion Brand CRUD
 #region Talent CRUD
-    def createTalent(self, talent_name, email, telephone):
+    def createTalent(self, talent_name, email, telephone, alias=None):
         if talent_name in self.talents:
             print(f"Talent '{talent_name}' already exists.")
             return False
         else:
-            print(f"Creating talent '{talent_name}' with email '{email}' and telephone '{telephone}'.")
-            new_talent = talent.Talent(talent_name, email, telephone)
+            print(f"Creating talent '{talent_name}' with email '{email}' and telephone '{telephone}', alias '{alias}'.")
+            new_talent = talent.Talent(talent_name, email, telephone, alias=None)
             self.talents[talent_name] = new_talent
             return True
 
-    def editTalent(self, talent_name, new_name=None, new_email=None, new_telephone=None):
+    def editTalent(self, talent_name, new_name=None, new_email=None, new_telephone=None, new_alias=None):
         if talent_name in self.talents:
             talent_to_edit = self.talents[talent_name]
             if new_name:
@@ -68,6 +68,8 @@ class Model(object):
                 talent_to_edit.email = new_email
             if new_telephone:
                 talent_to_edit.telephone = new_telephone
+            if new_alias:
+                talent_to_edit.alias = new_alias
             print(f"Talent '{talent_name}' updated to: {talent_to_edit}")
             return True
         else:
@@ -87,17 +89,17 @@ class Model(object):
         return self.talents.get(talent_name, None)
 #endregion Talent CRUD
 #region Manager CRUD
-    def createManager(self, manager_name, email, telephone):
+    def createManager(self, manager_name, email, telephone, alias):
         if manager_name in self.managers:
             print(f"Manager '{manager_name}' already exists.")
             return False
         else:
-            print(f"Creating manager '{manager_name}' with email '{email}' and telephone '{telephone}'.")
-            new_manager = manager.Manager(manager_name, email, telephone)
+            print(f"Creating manager '{manager_name}' with email '{email}' and telephone '{telephone}', alias '{alias}'.")
+            new_manager = manager.Manager(manager_name, email, telephone, alias)
             self.managers[manager_name] = new_manager
             return True
         
-    def editManager(self, manager_name, new_name=None, new_email=None, new_telephone=None):
+    def editManager(self, manager_name, new_name=None, new_email=None, new_telephone=None, new_alias=None):
         if manager_name in self.managers:
             manager_to_edit = self.managers[manager_name]
             if new_name:
@@ -106,6 +108,8 @@ class Model(object):
                 manager_to_edit.email = new_email
             if new_telephone:
                 manager_to_edit.telephone = new_telephone
+            if new_alias:
+                manager_to_edit.alias = new_alias
             print(f"Manager '{manager_name}' updated to: {manager_to_edit}")
             return True
         else:
